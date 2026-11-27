@@ -1,0 +1,946 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Tajawal', sans-serif;
+  background: #F6F8FC;
+  color: #151D32;
+  min-height: 100vh;
+}
+
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+a { text-decoration: none; color: inherit; }
+
+/* =====================================================
+   Sidebar (يمين)
+   ===================================================== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 260px;
+  height: 100vh;
+  background: #FFFFFF;
+  border-left: 1px solid #E9ECF1;
+  padding: 20px 16px 12px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  z-index: 50;
+}
+
+/* اللوجو */
+.sb-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 10px;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+.sb-brand img {
+  width: 44px;
+  height: 46px;
+  object-fit: contain;
+}
+.sb-brand-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+.sb-en {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 100%;
+  letter-spacing: .5px;
+  background: linear-gradient(90deg, #5BD1FF 0%, #5090DF 50%, #4550BF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.sb-ar {
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 100%;
+  color: #9D9FA6;
+}
+
+/* الروابط */
+.sb-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sb-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 40px;
+  flex-shrink: 0;
+  padding: 0 14px;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #737784;
+  transition: background .2s, color .2s;
+}
+.sb-link svg { flex-shrink: 0; }
+.sb-link:hover {
+  background: #F6F8FC;
+  color: #151D32;
+}
+.sb-link.active {
+  background: #EEF0FE;
+  color: #5865F2;
+  font-weight: 700;
+}
+
+/* الملف الشخصي وتسجيل الخروج: بينزلوا لآخر السايدبار */
+.sb-bottom {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid #EEF0F3;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* =====================================================
+   المحتوى (يسار السايدبار)
+   ===================================================== */
+.main {
+  margin-right: 260px;
+  padding: 24px 32px 40px;
+  min-height: 100vh;
+}
+
+/* =====================================================
+   Top bar
+   ===================================================== */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.tb-title {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 100%;
+  white-space: nowrap;
+  background: linear-gradient(90deg, #5865F2 0%, #5090DF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* البحث */
+.tb-search {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 44px;
+  padding: 0 16px;
+  background: #fff;
+  border: 1px solid #E4E6EB;
+  border-radius: 12px;
+  transition: border-color .2s, box-shadow .2s;
+}
+.tb-search:focus-within {
+  border-color: #5865F2;
+  box-shadow: 0 0 0 3px #5865F220;
+}
+.tb-search input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: none;
+  font-family: inherit;
+  font-size: 14px;
+  color: #151D32;
+}
+.tb-search input::placeholder { color: #A1A5AD; }
+
+/* الجرس */
+.tb-bell {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid #E4E6EB;
+  border-radius: 12px;
+  transition: border-color .2s;
+}
+.tb-bell:hover { border-color: #5865F2; }
+.tb-bell-dot {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #5ACBFC;
+  border: 2px solid #fff;
+}
+
+/* المستخدم */
+.tb-user {
+  position: relative;
+  flex-shrink: 0;
+}
+.tb-user-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px;
+  border-radius: 12px;
+  transition: background .2s;
+}
+.tb-user-btn:hover { background: #fff; }
+
+.tb-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #5ACBFC 0%, #5865F2 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+}
+.tb-user-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+.tb-name {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 100%;
+}
+.tb-role {
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 100%;
+  color: #737784;
+}
+.tb-chevron {
+  margin-inline-start: 10px;
+  transition: transform .2s;
+}
+.tb-user.open .tb-chevron { transform: rotate(180deg); }
+
+/* القائمة المنسدلة */
+.tb-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 180px;
+  padding: 8px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px 0 #004B9220;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity .2s, transform .2s, visibility .2s;
+  z-index: 60;
+}
+.tb-user.open .tb-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.tb-dd-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 15px;
+  color: #151D32;
+  transition: background .2s, color .2s;
+}
+.tb-dd-link:hover {
+  background: #EEF0FE;
+  color: #5865F2;
+}
+
+/* =====================================================
+   Welcome banner
+   ===================================================== */
+.welcome {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 24px;
+  min-height: 340px;
+  padding: 40px 48px;
+  border-radius: 24px;
+  border: 1px solid #DCE4F7;
+  background: linear-gradient(270deg, #E6E8FC 0%, #E3EEFC 50%, #E4F3FD 100%);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+/* النصوص */
+.wl-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.wl-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 100%;
+  color: #5865F2;
+}
+
+.wl-title {
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 120%;
+  color: #151D32;
+}
+.grad {
+  background: linear-gradient(90deg, #0F1EE9 0%, #5B66F3 30%, #5ACBFC 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.wl-desc {
+  margin-top: 16px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #737784;
+}
+
+/* الأزرار */
+.wl-actions {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 22px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 15px;
+  transition: background .2s, transform .1s, box-shadow .2s;
+}
+.btn-primary {
+  background: #5865F2;
+  color: #fff;
+  box-shadow: 0 6px 18px 0 #5865F240;
+}
+.btn-primary:hover { background: #4752d6; }
+.btn-secondary {
+  background: #fff;
+  color: #5865F2;
+}
+.btn-secondary:hover { box-shadow: 0 4px 14px 0 #004B9218; }
+.btn-primary:active,
+.btn-secondary:active { transform: scale(.98); }
+
+/* الطلاب */
+.wl-proof {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.wl-avatars { display: flex; }
+.wl-avatars span {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2.5px solid #FFFFFF;
+  background: #5865F2;
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wl-avatars span + span { margin-inline-start: -10px; }
+.wl-proof-text {
+  font-weight: 500;
+  font-size: 12px;
+  color: #737784;
+}
+.wl-proof-text b { color: #151D32; }
+
+/* الروبوت */
+.wl-visual {
+  position: relative;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wl-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid #C9D7F5;
+}
+.wl-ring-1 {
+  width: 290px;
+  height: 290px;
+}
+.wl-ring-2 {
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, #B8E4FB80 0%, #DCEBFC40 70%, transparent 100%);
+  border-color: #BFD3F5;
+}
+.wl-robot {
+  position: relative;
+  height: 300px;
+  width: auto;
+  object-fit: contain;
+  z-index: 1;
+}
+
+/* الكروت الصغيرة حوالين الروبوت */
+.wl-chip {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 6px 20px 0 #004B9218;
+  font-weight: 700;
+  font-size: 12px;
+  white-space: nowrap;
+  animation: float 4s ease-in-out infinite;
+}
+.wl-chip-1 { top: 40px; right: 0; }
+.wl-chip-2 { bottom: 40px; left: 0; animation-delay: -2s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+/* =====================================================
+   كارد عام
+   ===================================================== */
+.card {
+  background: #FFFFFF;
+  border: 1px solid #EEF0F3;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px 0 #004B920A;
+  padding: 24px 28px;
+  margin-bottom: 24px;
+}
+
+.card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.eyebrow {
+  display: block;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 100%;
+  color: #5865F2;
+}
+
+.card-title {
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 120%;
+  color: #151D32;
+}
+
+/* =====================================================
+   Journey steps
+   ===================================================== */
+.journey-pill {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: #EEF0FE;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 100%;
+  color: #5865F2;
+  margin-top: 16px;
+}
+
+.journey-steps {
+  list-style: none;
+  display: flex;
+  margin-top: 24px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.js-step {
+  position: relative;
+  flex: 1;
+  min-width: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.js-step:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  right: -50%;
+  width: 100%;
+  height: 2px;
+  background: #E4E6EB;
+  z-index: 0;
+}
+.js-step.done::before,
+.js-step.current::before {
+  background: #5865F2;
+}
+
+.js-dot {
+  position: relative;
+  z-index: 1;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 12px;
+  background: #fff;
+  border: 2px solid #D0D2D6;
+  color: #A1A5AD;
+  transition: background .3s, border-color .3s, box-shadow .3s;
+}
+.js-step.done .js-dot {
+  background: #5865F2;
+  border-color: #5865F2;
+  color: #fff;
+}
+.js-step.current .js-dot {
+  border-color: #5865F2;
+  color: #5865F2;
+  box-shadow: 0 0 0 4px #5ACBFC40;
+}
+
+.js-label {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 130%;
+  color: #BABABA;
+}
+.js-step.done .js-label { color: #151D32; }
+.js-step.current .js-label {
+  color: #5865F2;
+  font-weight: 700;
+}
+
+/* =====================================================
+   عنوان قسم برّا الكارد
+   ===================================================== */
+.section { margin-bottom: 24px; }
+
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.see-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #5865F2;
+  white-space: nowrap;
+}
+.see-all:hover { text-decoration: underline; }
+
+/* =====================================================
+   Active course card
+   ===================================================== */
+.course-card {
+  display: flex;
+  padding: 0;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.course-media {
+  width: 260px;
+  flex-shrink: 0;
+}
+.course-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.course-body {
+  flex: 1;
+  padding: 22px 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tag {
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: #EEF0F3;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 100%;
+  color: #737784;
+}
+.tag-blue {
+  background: #EEF0FE;
+  color: #5865F2;
+}
+
+.course-title {
+  margin-top: 16px;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 120%;
+  color: #151D32;
+}
+
+.course-meta {
+  margin-top: 12px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 150%;
+  color: #9D9FA6;
+}
+.course-meta b {
+  font-weight: 700;
+  color: #151D32;
+}
+
+/* شريط التقدم */
+.progress { margin-top: 24px; }
+
+.progress-head {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 13px;
+  color: #151D32;
+  margin-bottom: 10px;
+}
+.progress-value {
+  font-weight: 700;
+  color: #5865F2;
+}
+
+.progress-track {
+  height: 8px;
+  border-radius: 8px;
+  background: #E9ECF1;
+  overflow: hidden;
+}
+.progress-fill {
+  width: 0;
+  height: 100%;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #4550BF 0%, #5090DF 50%, #5ACBFC 100%);
+  transition: width 1s ease;
+}
+
+.course-footer {
+  margin-top: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.course-lessons {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  font-size: 12px;
+  color: #737784;
+}
+
+/* =====================================================
+   عمودين: التخصصات + الإشعارات
+   ===================================================== */
+.two-cols {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.icon-box {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: #EEF0FE;
+  color: #5865F2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-box-sm {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+/* =====================================================
+   Specializations
+   ===================================================== */
+.spec-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.spec-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px;
+  margin-bottom: 0;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+}
+.spec-card:hover {
+  transform: translateY(-3px);
+  border-color: #D9DDFB;
+  box-shadow: 0 10px 28px 0 #004B9218;
+}
+
+.spec-body {
+  display: flex;
+  flex-direction: column;
+}
+.spec-title {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 130%;
+  color: #151D32;
+}
+.spec-desc {
+  margin-top: 8px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 150%;
+  color: #9D9FA6;
+}
+.spec-link {
+  margin-top: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+  font-size: 12px;
+  color: #5865F2;
+}
+.spec-link svg { transition: transform .2s; }
+.spec-card:hover .spec-link svg { transform: translateX(-3px); }
+
+/* =====================================================
+   Notifications
+   ===================================================== */
+.notif-list {
+  list-style: none;
+  padding: 8px 20px;
+  margin-bottom: 0;
+}
+
+.notif {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 0;
+}
+.notif + .notif { border-top: 1px solid #EEF0F3; }
+
+.notif-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.notif-title {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 120%;
+  color: #151D32;
+}
+.notif-desc {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 140%;
+  color: #737784;
+}
+.notif-time {
+  font-weight: 500;
+  font-size: 11px;
+  color: #A1A5AD;
+}
+
+.notif-dot {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  margin-top: 16px;
+  border-radius: 50%;
+  background: #22D3EE;
+}
+
+/* =====================================================
+   Learning path banner
+   ===================================================== */
+.path-banner {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 24px 28px;
+  border-radius: 20px;
+  background: linear-gradient(270deg, #4550BF 0%, #5090DF 50%, #5ACBFC 100%);
+  box-shadow: 0 10px 30px 0 #4550BF30;
+  color: #fff;
+}
+
+.pb-icon {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  background: #FFFFFF26;
+  border: 1px solid #FFFFFF33;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pb-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.pb-pill {
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: #FFFFFF33;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 100%;
+}
+.pb-title {
+  margin-top: 12px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 120%;
+}
+.pb-desc {
+  margin-top: 8px;
+  font-weight: 500;
+  font-size: 12px;
+  color: #FFFFFFCC;
+}
+
+.progress-light {
+  width: 190px;
+  flex-shrink: 0;
+  margin-top: 0;
+}
+.progress-light .progress-head {
+  color: #FFFFFFCC;
+  font-size: 11px;
+}
+.progress-light .progress-value {
+  color: #fff;
+  font-size: 13px;
+}
+.progress-light .progress-track {
+  height: 6px;
+  background: #FFFFFF66;
+}
+.progress-light .progress-fill {
+  background: #4752D6;
+}
+
+.pb-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 22px;
+  border-radius: 12px;
+  background: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  color: #5865F2;
+  transition: transform .1s, box-shadow .2s;
+}
+.pb-btn:hover { box-shadow: 0 6px 18px 0 #00000020; }
+.pb-btn:active { transform: scale(.98); }
