@@ -1,0 +1,341 @@
+/* =====================================================
+   صفحة التخصصات
+   (السايدبار والتوب بار جايين من dashboard.css)
+   ===================================================== */
+
+a.tb-bell { text-decoration: none; }
+
+/* ---------- عنوان الصفحة ---------- */
+.page-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.page-eyebrow {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #5865F2;
+}
+
+.page-title {
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 120%;
+  color: #151D32;
+}
+
+.page-sub {
+  margin-top: 12px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #737784;
+}
+
+/* =====================================================
+   التخصص الأكثر إقبالاً
+   ===================================================== */
+.featured {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  align-items: center;
+  gap: 24px;
+  min-height: 280px;
+  margin-top: 28px;
+  margin-bottom: 32px;
+  padding: 40px 48px;
+  border-radius: 24px;
+  background: linear-gradient(100deg, #1CC6DD 0%, #3A8FE4 50%, #4148D6 100%);
+  box-shadow: 0 14px 36px 0 #3A6FE430;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* ---------- النصوص ---------- */
+.ft-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ft-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: #FFFFFF2E;
+  border: 1px solid #FFFFFF33;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 100%;
+}
+
+.ft-title {
+  margin-top: 18px;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 120%;
+}
+
+.ft-desc {
+  margin-top: 14px;
+  max-width: 460px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 170%;
+  color: #FFFFFFE0;
+}
+
+/* الزر على اليسار تحت النص */
+.ft-btn {
+  align-self: flex-end;
+  margin-top: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 22px;
+  border-radius: 12px;
+  background: #FFFFFFE6;
+  font-weight: 700;
+  font-size: 14px;
+  color: #4550BF;
+  transition: background .2s, transform .1s, box-shadow .2s;
+}
+.ft-btn:hover {
+  background: #fff;
+  box-shadow: 0 6px 18px 0 #00000025;
+}
+.ft-btn:active { transform: scale(.98); }
+.ft-btn svg { transition: transform .2s; }
+.ft-btn:hover svg { transform: translateX(-3px); }
+
+/* ---------- الأيقونة والدواير ---------- */
+.ft-visual {
+  position: relative;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ft-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid #FFFFFF40;
+}
+.ft-ring-1 { width: 220px; height: 220px; }
+.ft-ring-2 {
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle, #FFFFFF1A 0%, transparent 70%);
+}
+
+.ft-icon {
+  position: relative;
+  z-index: 1;
+}
+
+/* مربعات UI و UX */
+.ft-chip {
+  position: absolute;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #FFFFFF33;
+  border: 1px solid #FFFFFF40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: #fff;
+  animation: chipFloat 4s ease-in-out infinite;
+}
+.ft-chip-ui { top: 10px; right: 18%; }
+.ft-chip-ux { bottom: 10px; left: 12%; animation-delay: -2s; }
+
+@keyframes chipFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+/* =====================================================
+   البحث والفلاتر
+   ===================================================== */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.sp-search {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 46px;
+  padding: 0 16px;
+  background: #fff;
+  border: 1px solid #E4E6EB;
+  border-radius: 14px;
+  transition: border-color .2s, box-shadow .2s;
+}
+.sp-search:focus-within {
+  border-color: #5865F2;
+  box-shadow: 0 0 0 3px #5865F220;
+}
+.sp-search input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: none;
+  font-family: inherit;
+  font-size: 14px;
+  color: #151D32;
+}
+.sp-search input::placeholder { color: #A1A5AD; }
+
+.chips {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.chip {
+  height: 40px;
+  padding: 0 18px;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid #E4E6EB;
+  font-weight: 500;
+  font-size: 13px;
+  color: #737784;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.chip:hover {
+  border-color: #5865F2;
+  color: #5865F2;
+}
+.chip.active {
+  background: #5865F2;
+  border-color: #5865F2;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 4px 14px 0 #5865F240;
+}
+
+/* =====================================================
+   كروت التخصصات
+   ===================================================== */
+.sp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.sp-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 160px;
+  padding: 20px 22px 18px;
+  background: #fff;
+  border: 1px solid #EEF0F3;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px 0 #004B9208;
+  overflow: hidden;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+  animation: spIn .35s ease both;
+}
+.sp-card:hover {
+  transform: translateY(-4px);
+  border-color: #D9DDFB;
+  box-shadow: 0 12px 30px 0 #004B9218;
+}
+
+@keyframes spIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* مربع الأيقونة: اللون جاي من الـ JS */
+.sp-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--tint);
+  color: var(--color);
+}
+
+.sp-title {
+  margin-top: 16px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 130%;
+  color: #151D32;
+}
+
+.sp-desc {
+  margin-top: 8px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 150%;
+  color: #9D9FA6;
+}
+
+.sp-link {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+  padding-top: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+  font-size: 12px;
+  color: #5865F2;
+}
+.sp-link svg { transition: transform .2s; }
+.sp-card:hover .sp-link svg { transform: translateX(-3px); }
+
+/* الدايرة الفاتحة بالزاوية تحت (يمين) */
+.sp-card::after {
+  content: "";
+  position: absolute;
+  right: -28px;
+  bottom: -28px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--tint);
+  opacity: .6;
+  transition: transform .3s ease;
+}
+.sp-card:hover::after { transform: scale(1.2); }
+
+/* لما ما في نتائج */
+.sp-empty {
+  display: none;
+  margin-top: 32px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 14px;
+  color: #A1A5AD;
+}
+.sp-empty.show { display: block; }
