@@ -143,6 +143,19 @@ a { text-decoration: none; }
   position: relative;
   color: #151D32;
   cursor: pointer;
+
+  /* إصلاح الآيفون: نلغي شكل Safari الخاص ونجبره ياخد نفس حجم باقي الحقول */
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 48px;
+}
+/* نخلي التاريخ يبيّن على اليمين زي باقي الحقول */
+.date::-webkit-date-and-time-value {
+  text-align: right;
+  margin: 0;
 }
 /* بنخفي أيقونة المتصفح، وبنخلي الضغط على أي مكان بالحقل يفتح التقويم */
 .date::-webkit-calendar-picker-indicator {
