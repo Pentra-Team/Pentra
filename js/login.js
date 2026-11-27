@@ -27,6 +27,7 @@ document.getElementById('loginForm').addEventListener('submit', (e) => {
     return;
   }
   console.log('Login:', { email, remember: document.getElementById('remember').checked });
+    window.location.href = 'dashboard.html';
 });
 
 // ---------- Auto-sliding Carousel ----------
