@@ -1,0 +1,380 @@
+/* =====================================================
+   صفحة تفاصيل التخصص
+   (السايدبار والتوب بار والكارد والأزرار جايين من dashboard.css)
+   ===================================================== */
+
+a.tb-bell { text-decoration: none; }
+
+/* ---------- مسار التنقل ---------- */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 16px;
+  font-weight: 500;
+  font-size: 13px;
+  color: #737784;
+}
+.breadcrumb a {
+  color: #5865F2;
+  font-weight: 700;
+}
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb svg { color: #A1A5AD; }
+
+/* =====================================================
+   بانر التخصص
+   ===================================================== */
+.sd-hero {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  align-items: center;
+  gap: 24px;
+  min-height: 300px;
+  padding: 40px 48px;
+  margin-bottom: 24px;
+  border-radius: 24px;
+  border: 1px solid #DCE4F7;
+  background: linear-gradient(270deg, #E6E8FC 0%, #E3EEFC 50%, #E4F3FD 100%);
+  overflow: hidden;
+}
+
+.sd-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sd-pill {
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #D9DDFB;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 100%;
+  color: #5865F2;
+}
+
+.sd-title {
+  margin-top: 18px;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 120%;
+  color: #151D32;
+}
+
+.sd-desc {
+  margin-top: 14px;
+  max-width: 480px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 170%;
+  color: #737784;
+}
+
+.sd-meta {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 18px;
+}
+.sd-meta li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  font-size: 12px;
+  color: #737784;
+}
+
+.sd-btn { margin-top: 24px; }
+
+/* ---------- الرسمة ---------- */
+.sd-visual {
+  position: relative;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sd-circle {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #D6EBFD 0%, #BBDBF9 60%, #A9D0F6 100%);
+}
+
+.sd-window {
+  position: relative;
+  z-index: 1;
+  width: 200px;
+  height: 140px;
+  padding: 14px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 16px 36px 0 #4550BF30;
+  transform: rotate(-6deg);
+  animation: winFloat 5s ease-in-out infinite;
+}
+.sd-dots {
+  display: flex;
+  gap: 4px;
+  justify-content: flex-start;
+}
+.sd-dots i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #5865F2;
+}
+.sd-screen {
+  display: block;
+  margin-top: 12px;
+  height: 84px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #8E9BF5 0%, #5865F2 60%, #4550BF 100%);
+}
+
+.sd-badge {
+  position: absolute;
+  z-index: 2;
+  left: 22%;
+  bottom: 18px;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #7984F5 0%, #4550BF 100%);
+  border: 4px solid #fff;
+  box-shadow: 0 10px 24px 0 #4550BF40;
+  animation: winFloat 5s ease-in-out infinite;
+  animation-delay: -2.5s;
+}
+
+@keyframes winFloat {
+  0%, 100% { translate: 0 0; }
+  50%      { translate: 0 -8px; }
+}
+
+/* =====================================================
+   العمودين
+   ===================================================== */
+.sd-cols {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.sd-main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+.sd-main .section { margin-bottom: 0; }
+
+/* ---------- عن هذا التخصص ---------- */
+.about-card { margin-bottom: 0; }
+
+.about-title {
+  font-weight: 700;
+  font-size: 20px;
+  color: #151D32;
+}
+.about-text {
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 180%;
+  color: #737784;
+}
+
+.learn-title {
+  margin-top: 22px;
+  font-weight: 700;
+  font-size: 15px;
+  color: #151D32;
+}
+
+.learn-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 24px;
+  margin-top: 14px;
+}
+.learn-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 13px;
+  color: #737784;
+}
+/* علامة ✓ خضرا قبل كل عنصر */
+.learn-list li::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #E3F6EC url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2322A06B' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4L18 8'/%3E%3C/svg%3E") center / 11px no-repeat;
+}
+
+/* ---------- كروت الدورات ---------- */
+.c-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.c-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #EEF0F3;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px 0 #004B9208;
+  overflow: hidden;
+  transition: transform .2s, box-shadow .2s;
+}
+.c-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px 0 #004B9218;
+}
+
+.c-card img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  display: block;
+}
+
+.c-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 14px 16px 16px;
+}
+.c-title {
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 130%;
+  color: #151D32;
+}
+.c-coach {
+  margin-top: 6px;
+  font-weight: 500;
+  font-size: 11px;
+  color: #9D9FA6;
+}
+.c-price {
+  align-self: flex-end;      /* على اليسار */
+  margin-top: 14px;
+  font-weight: 800;
+  font-size: 16px;
+  color: #5865F2;
+}
+
+/* =====================================================
+   كارد الاختبار الغامق
+   ===================================================== */
+.quiz-card {
+  position: sticky;
+  top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 28px 26px;
+  border-radius: 20px;
+  background: linear-gradient(160deg, #222A58 0%, #161C3F 100%);
+  box-shadow: 0 16px 40px 0 #161C3F40;
+  color: #fff;
+}
+
+.quiz-icon {
+  align-self: flex-end;     /* على اليسار فوق */
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF14;
+  border: 1px solid #FFFFFF1F;
+}
+
+.quiz-pill {
+  margin-top: 14px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #FFFFFF1F;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 100%;
+}
+
+.quiz-title {
+  margin-top: 14px;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 140%;
+}
+
+.quiz-desc {
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 170%;
+  color: #FFFFFFB3;
+}
+
+.quiz-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+}
+.quiz-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  font-size: 13px;
+  color: #FFFFFFE6;
+}
+
+.quiz-btn {
+  width: 100%;
+  margin-top: 24px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #7984F5 0%, #5865F2 100%);
+  box-shadow: 0 8px 22px 0 #5865F260;
+  font-weight: 700;
+  font-size: 15px;
+  color: #fff;
+  transition: transform .1s, box-shadow .2s;
+}
+.quiz-btn:hover { box-shadow: 0 10px 28px 0 #5865F280; }
+.quiz-btn:active { transform: scale(.98); }
+
+.quiz-note {
+  margin-top: 14px;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 170%;
+  color: #FFFFFF99;
+}

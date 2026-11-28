@@ -102,7 +102,7 @@ function renderSpecs() {
   });
 
   spGrid.innerHTML = items.map((s, i) => `
-    <a href="#" class="sp-card" style="--tint:${s.tint}; --color:${s.color}; animation-delay:${i * 50}ms">
+        <a href="specialization-details.html" class="sp-card" style="--tint:${s.tint}; --color:${s.color}; animation-delay:${i * 50}ms">
       <span class="sp-icon">${SPEC_ICONS[s.icon]}</span>
       <h3 class="sp-title">${s.title}</h3>
       <p class="sp-desc">${s.desc}</p>
