@@ -1,0 +1,251 @@
+/* =====================================================
+   صفحة مقدمة اختبار تحديد المستوى
+   (السايدبار والتوب بار والكارد والأزرار جايين من dashboard.css)
+   ===================================================== */
+
+a.tb-bell { text-decoration: none; }
+
+/* ---------- عنوان الصفحة ---------- */
+.page-head { margin-top: 8px; }
+
+.page-eyebrow {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #5865F2;
+}
+.page-title {
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 120%;
+  color: #151D32;
+}
+.page-sub {
+  margin-top: 12px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #737784;
+}
+
+/* =====================================================
+   العمودين
+   ===================================================== */
+.pt-cols {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+  margin-top: 28px;
+}
+
+/* =====================================================
+   كارد الاختبار
+   ===================================================== */
+.pt-card {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+  padding: 24px 22px;
+}
+
+/* الهيدر */
+.pt-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #EEF0F3;
+}
+.pt-spec {
+  display: block;
+  font-weight: 500;
+  font-size: 12px;
+  color: #5865F2;
+}
+.pt-title {
+  margin-top: 6px;
+  font-weight: 700;
+  font-size: 20px;
+  color: #151D32;
+}
+
+/* الأرقام */
+.pt-stats {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 20px;
+  border: 1px solid #E4E6EB;
+  border-radius: 14px;
+  overflow: hidden;
+}
+.pt-stats li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 8px;
+  text-align: center;
+}
+.pt-stats li + li { border-right: 1px solid #E4E6EB; }
+
+.pt-num {
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 100%;
+  color: #5865F2;
+}
+.pt-label {
+  font-weight: 500;
+  font-size: 11px;
+  color: #9D9FA6;
+}
+
+/* التعليمات */
+.pt-sub {
+  margin-top: 24px;
+  font-weight: 700;
+  font-size: 15px;
+  color: #151D32;
+}
+
+.pt-rules {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 12px;
+}
+.pt-rules li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #F6F8FC;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 170%;
+  color: #737784;
+}
+.pt-rule-num {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #EEF0FE;
+  font-weight: 700;
+  font-size: 11px;
+  color: #5865F2;
+}
+
+/* الموافقة */
+.pt-agree {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  font-weight: 500;
+  font-size: 13px;
+  color: #151D32;
+  cursor: pointer;
+  user-select: none;
+}
+.pt-agree input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  border: 1.5px solid #BABABA;
+  background: #fff;
+  cursor: pointer;
+  transition: background .2s, border-color .2s;
+}
+.pt-agree input:checked {
+  background: #5865F2 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E") center / 12px no-repeat;
+  border-color: #5865F2;
+}
+.pt-agree input:focus-visible {
+  outline: 3px solid #5865F240;
+  outline-offset: 2px;
+}
+
+/* زر البدء (على اليسار) */
+.pt-start {
+  align-self: flex-end;
+  margin-top: 22px;
+  margin-inline-end: 16px;
+  border: none;
+  cursor: pointer;
+}
+.pt-start:disabled {
+  background: #A8AEF7;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =====================================================
+   الروبوت
+   ===================================================== */
+.pt-visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 360px;
+  padding: 12px;
+  border-radius: 20px;
+  border: 1px solid #DCE4F7;
+  background: linear-gradient(180deg, #E3EEFC 0%, #D6E6FB 100%);
+  overflow: hidden;
+}
+
+.pt-robot {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  translate: -50% 0;
+  height: 92%;
+  width: auto;
+  object-fit: contain;
+  animation: robotFloat 5s ease-in-out infinite;
+}
+
+@keyframes robotFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+.pt-safe {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 24px 0 #004B9218;
+}
+.pt-safe-title {
+  display: block;
+  font-weight: 700;
+  font-size: 14px;
+  color: #151D32;
+}
+.pt-safe-sub {
+  display: block;
+  margin-top: 6px;
+  font-weight: 500;
+  font-size: 11px;
+  color: #9D9FA6;
+}
